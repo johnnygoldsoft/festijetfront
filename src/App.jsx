@@ -1,16 +1,16 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Layout from "./Pages/Layout";
+import Layout from "./pages/Layout";
 import "./App.css";
-import Home from "./Pages/Home";
-import Register from "./Pages/Auth/Register";
-import Login from "./Pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import Login from "./pages/Auth/Login";
 import { useContext } from "react";
 import { AppContext } from "./Context/AppContext";
-import Products from "./Pages/Products";
-import Admin from "./Pages/admin";
+import Products from "./pages/Products";
+import Admin from "./pages/admin";
 import Create from "./pages/products/create";
 import Show from "./pages/products/Show";
 import Edit from "./pages/products/Edit";
+import Home from "./pages/Home";
 
 export default function App() {
   const { user, loading } = useContext(AppContext);
