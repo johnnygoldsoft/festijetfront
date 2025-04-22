@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AppContext } from "./Context/AppContext";
 import Products from "./pages/Products";
 import Admin from "./pages/Admin";
-import Create from "./pages/products/create";
+import Create from "./pages/products/Create";
 import Show from "./pages/products/Show";
 import Edit from "./pages/products/Edit";
 import Home from "./pages/Home";
