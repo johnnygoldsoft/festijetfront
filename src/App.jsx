@@ -50,7 +50,14 @@ export default function App() {
           {/* Admin */}
           <Route
             path="/admin"
-            element={user && user.isAdmin ? <Admin /> : <Navigate to="/" />}
+            element={
+              user ? (
+                // && user.isAdmin
+                <Admin />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
         </Route>
       </Routes>
