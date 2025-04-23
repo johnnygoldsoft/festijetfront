@@ -5,11 +5,12 @@ export const AppContext = createContext();
 export default function AppProvider({ children }) {
   const [token, setToken] = useState(localStorage.getItem("access_token"));
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // 🆕 Ajout
+  const [loading, setLoading] = useState(true);
+  const baseUrl = "https://festijet.houseofwood.net";
 
   async function getUser() {
     try {
-      const res = await fetch("/api/user", {
+      const res = await fetch(`${baseUrl}/api/user`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
