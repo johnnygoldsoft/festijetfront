@@ -54,7 +54,7 @@ export default function Show() {
       );
 
       alert("Produit supprimé !");
-      navigate("/products");
+      navigate("/");
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
       alert("Échec de la suppression");
