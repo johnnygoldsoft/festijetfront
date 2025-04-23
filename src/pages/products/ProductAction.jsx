@@ -12,7 +12,7 @@ export default function ProductActions({ product }) {
 
     try {
       await axios.delete(
-        `http://127.0.0.1:8000/api/v1/products/${product.id}`,
+        `https://festijet.houseofwood.net/api/v1/products/${product.id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -10,11 +10,13 @@ export default function Show() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const baseUrl = "http://127.0.0.1:8000/storage/";
+  const baseUrl = "https://festijet.houseofwood.net/storage/";
 
   const getProduct = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/v1/products/${id}`);
+      const res = await fetch(
+        `https://festijet.houseofwood.net/api/v1/products/${id}`
+      );
       const data = await res.json();
 
       if (res.ok) {
@@ -42,11 +44,14 @@ export default function Show() {
     if (!window.confirm("Voulez-vous vraiment supprimer ce produit ?")) return;
 
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/v1/products/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `https://festijet.houseofwood.net/api/v1/products/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       alert("Produit supprimé !");
       navigate("/products");

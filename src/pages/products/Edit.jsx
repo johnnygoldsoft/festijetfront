@@ -21,7 +21,9 @@ export default function Edit() {
 
   // Fetch du produit existant
   const fetchProduct = async () => {
-    const res = await fetch(`http://127.0.0.1:8000/api/v1/products/${id}`);
+    const res = await fetch(
+      `https://festijet.houseofwood.net/api/v1/products/${id}`
+    );
     const data = await res.json();
     if (res.ok) {
       setFormData({
@@ -37,7 +39,9 @@ export default function Edit() {
 
   // Fetch des catégories disponibles
   const fetchCategories = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/v1/categories");
+    const res = await fetch(
+      "https://festijet.houseofwood.net/api/v1/categories"
+    );
     const data = await res.json();
     if (res.ok) {
       setCategories(data); // Mettre à jour l'état avec les catégories récupérées
@@ -76,13 +80,16 @@ export default function Edit() {
     }
     payload.append("_method", "PUT");
 
-    const res = await fetch(`http://127.0.0.1:8000/api/v1/products/${id}`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: payload,
-    });
+    const res = await fetch(
+      `https://festijet.houseofwood.net/api/v1/products/${id}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: payload,
+      }
+    );
 
     // Vérifier la réponse du serveur
     const data = await res.json();
