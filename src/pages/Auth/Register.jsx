@@ -19,6 +19,10 @@ export default function Register() {
   async function handleRegister(e) {
     e.preventDefault();
     const res = await fetch(`${baseUrl}/api/register`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
       method: "post",
       body: JSON.stringify(formData),
     });

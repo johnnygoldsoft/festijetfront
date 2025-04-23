@@ -17,6 +17,10 @@ export default function Login() {
   async function handleLogin(e) {
     e.preventDefault();
     const res = await fetch(`${baseUrl}/api/login`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
       method: "post",
       body: JSON.stringify(formData),
     });
