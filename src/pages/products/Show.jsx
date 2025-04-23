@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import { AppContext } from "../../Context/AppContext";
 import ProductActions from "./ProductAction";
+import { BallTriangle } from "react-loader-spinner";
 
 export default function Show() {
   const { id } = useParams();
