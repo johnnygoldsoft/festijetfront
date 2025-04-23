@@ -21,7 +21,7 @@ export default function Create() {
   // Récupérer les catégories
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/categories")
+      .get("https://festijet.houseofwood.net/api/v1/categories")
       .then((res) => setCategories(res.data))
       .catch((err) =>
         console.error("Erreur lors de la récupération des catégories :", err)
@@ -47,7 +47,7 @@ export default function Create() {
 
     try {
       const res = await axios.post(
-        "http://127.0.0.1:8000/api/v1/products",
+        "https://festijet.houseofwood.net/api/v1/products",
         data,
         {
           headers: {

@@ -9,22 +9,54 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const baseUrl = "https://festijet.houseofwood.net/storage/";
+  const baseUrl = "https://festijet.houseofwood.net";
 
   const getProducts = async () => {
-    const res = await fetch("/api/v1/products");
-    const data = await res.json();
-    if (res.ok) {
-      setProducts(data);
-      setFiltered(data);
+    try {
+      const res = await fetch(`${baseUrl}/api/v1/products`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Ajoutez des en-têtes personnalisés si nécessaire
+          // "Authorization": `Bearer ${yourToken}`,
+        },
+        mode: "cors",
+      });
+
+      // Vérifiez si la réponse est correcte
+      if (!res.ok) {
+        throw new Error(`Erreur ${res.status}: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      setProducts(data); // Met à jour l'état des produits
+      setFiltered(data); // Met à jour l'état des produits filtrés
+    } catch (error) {
+      console.error("Erreur lors de la récupération des produits :", error);
     }
   };
 
   const getCategories = async () => {
-    const res = await fetch("/api/v1/categories");
-    const data = await res.json();
-    if (res.ok) {
-      setCategories(data);
+    try {
+      const res = await fetch(`${baseUrl}/api/v1/categories`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // Ajoutez d'autres en-têtes si nécessaire
+          // "Authorization": `Bearer ${yourToken}`,
+        },
+        mode: "cors",
+      });
+
+      // Vérifiez si la réponse est correcte
+      if (!res.ok) {
+        throw new Error(`Erreur ${res.status}: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      setCategories(data); // Met à jour l'état des catégories
+    } catch (error) {
+      console.error("Erreur lors de la récupération des catégories :", error);
     }
   };
 
