@@ -5,6 +5,7 @@ import { AppContext } from "../Context/AppContext";
 export default function Layout() {
   const { user, token, setUser, setToken } = useContext(AppContext);
   const navigate = useNavigate();
+  const baseUrl = "https://festijet.houseofwood.net";
 
   async function handleLogout(e) {
     e.preventDefault();
