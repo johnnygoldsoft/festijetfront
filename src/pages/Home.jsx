@@ -133,7 +133,7 @@ export default function Home() {
               className="bg-white p-4 rounded-xl shadow hover:shadow-lg hover:border-2 hover:border-blue-600 transition"
             >
               <img
-                src={`${baseUrl}${post.image_url}`}
+                src={`${baseUrl}/storage/${post.image_url}`}
                 alt={post.name}
                 className="h-40 w-full object-cover mb-4 justify-center items-center rounded-md bg-gray-300"
               />
