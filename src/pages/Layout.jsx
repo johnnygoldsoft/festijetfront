@@ -9,7 +9,7 @@ export default function Layout() {
   async function handleLogout(e) {
     e.preventDefault();
 
-    const res = await fetch("/api/logout", {
+    const res = await fetch(`${baseUrl}/api/logout`, {
       method: "post",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -50,12 +50,6 @@ export default function Layout() {
               </>
             ) : (
               <>
-                <Link
-                  to="/products"
-                  className="text-sm text-gray-300 hover:text-white transition duration-300"
-                >
-                  Liste des Produits
-                </Link>
                 <Link
                   to="/login"
                   className="text-sm text-gray-300 hover:text-white transition duration-300"

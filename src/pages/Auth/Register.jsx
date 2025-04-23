@@ -5,6 +5,7 @@ import { AppContext } from "../../Context/AppContext";
 export default function Register() {
   const { token, setToken } = useContext(AppContext);
   const navigate = useNavigate();
+  const baseUrl = "https://festijet.houseofwood.net";
 
   const [formData, setFormDate] = useState({
     name: "",
@@ -17,7 +18,7 @@ export default function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    const res = await fetch("/api/register", {
+    const res = await fetch(`${baseUrl}/api/register`, {
       method: "post",
       body: JSON.stringify(formData),
     });

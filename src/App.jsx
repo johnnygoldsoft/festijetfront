@@ -5,19 +5,28 @@ import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
 import { useContext } from "react";
 import { AppContext } from "./Context/AppContext";
-import Products from "./pages/Products";
-import Admin from "./pages/Admin";
 import Create from "./pages/products/Create";
 import Show from "./pages/products/Show";
 import Edit from "./pages/products/Edit";
 import Home from "./pages/Home";
+import { BallTriangle } from "react-loader-spinner";
 
 export default function App() {
   const { user, loading } = useContext(AppContext);
 
   // Si l'utilisateur est en train de se charger, on peut afficher un loading spinner
+
   if (loading) {
-    return <div className="p-6 max-w-7xl mx-auto">Chargement...</div>; // Ou tu peux afficher un loader ou un spinner ici
+    return (
+      <div className="p-6 max-w-7xl mx-auto flex justify-center items-center h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          color="#4fa94d"
+          ariaLabel="loading-indicator"
+        />
+      </div>
+    );
   }
 
   return (
@@ -35,8 +44,6 @@ export default function App() {
             element={user ? <Navigate to="/" /> : <Login />}
           />
 
-          {/* Produits */}
-          <Route path="/products" element={<Products />} />
           <Route
             path="/product/creer"
             element={user ? <Create /> : <Navigate to="/login" />}
@@ -45,19 +52,6 @@ export default function App() {
           <Route
             path="/product/edit/:id/"
             element={user ? <Edit /> : <Navigate to="/login" />}
-          />
-
-          {/* Admin */}
-          <Route
-            path="/admin"
-            element={
-              user ? (
-                // && user.isAdmin
-                <Admin />
-              ) : (
-                <Navigate to="/" />
-              )
-            }
           />
         </Route>
       </Routes>

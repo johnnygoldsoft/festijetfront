@@ -5,6 +5,7 @@ import { AppContext } from "../../Context/AppContext";
 export default function Login() {
   const { setToken } = useContext(AppContext);
   const navigate = useNavigate();
+  const baseUrl = "https://festijet.houseofwood.net";
 
   const [formData, setFormDate] = useState({
     email: "",
@@ -15,7 +16,7 @@ export default function Login() {
 
   async function handleLogin(e) {
     e.preventDefault();
-    const res = await fetch("/api/login", {
+    const res = await fetch(`${baseUrl}/api/login`, {
       method: "post",
       body: JSON.stringify(formData),
     });
