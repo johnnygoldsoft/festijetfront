@@ -9,7 +9,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const baseUrl = "http://127.0.0.1:8000/storage/";
+  const baseUrl = "https://festijet.houseofwood.net/storage/";
 
   const getProducts = async () => {
     const res = await fetch("/api/v1/products");
@@ -54,7 +54,7 @@ export default function Home() {
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
   const currentItems = filtered.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  const totalpages = Math.ceil(filtered.length / itemsPerPage);
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -125,9 +125,9 @@ export default function Home() {
       )}
 
       {/* 📄 Pagination */}
-      {totalPages > 1 && (
+      {totalpages > 1 && (
         <div className="flex justify-center mt-8 gap-2">
-          {[...Array(totalPages).keys()].map((n) => (
+          {[...Array(totalpages).keys()].map((n) => (
             <button
               key={n}
               onClick={() => setCurrentPage(n + 1)}

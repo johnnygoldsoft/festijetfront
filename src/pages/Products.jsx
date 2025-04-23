@@ -9,7 +9,7 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
-  const baseUrl = "http://127.0.0.1:8000/storage/";
+  const baseUrl = "https://festijet.houseofwood.net/storage/";
 
   const getProducts = async () => {
     const res = await fetch("/api/v1/products");
@@ -54,7 +54,7 @@ export default function Products() {
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
   const currentItems = filtered.slice(indexOfFirst, indexOfLast);
-  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  const totalpages = Math.ceil(filtered.length / itemsPerPage);
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
@@ -83,6 +83,13 @@ export default function Products() {
             </option>
           ))}
         </select>
+        {/* Bouton de création de produit */}
+        <Link
+          to="/product/creer"
+          className="inline-block py-2 px-5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg ml-4"
+        >
+          Ajouter
+        </Link>
       </div>
 
       {/* 🧾 Liste des produits */}
@@ -91,12 +98,12 @@ export default function Products() {
           {currentItems.map((post) => (
             <div
               key={post.id}
-              className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition"
+              className="bg-white p-4 rounded-xl shadow hover:shadow-lg hover:border-2 hover:border-blue-600 transition"
             >
               <img
                 src={`${baseUrl}${post.image_url}`}
                 alt={post.name}
-                className="h-40 w-full object-cover mb-4 rounded-md bg-gray-300"
+                className="h-40 w-full object-cover mb-4 justify-center items-center rounded-md bg-gray-300"
               />
               <h2 className="text-xl font-semibold text-slate-800 mb-1">
                 {post.name}
@@ -118,9 +125,9 @@ export default function Products() {
       )}
 
       {/* 📄 Pagination */}
-      {totalPages > 1 && (
+      {totalpages > 1 && (
         <div className="flex justify-center mt-8 gap-2">
-          {[...Array(totalPages).keys()].map((n) => (
+          {[...Array(totalpages).keys()].map((n) => (
             <button
               key={n}
               onClick={() => setCurrentPage(n + 1)}
