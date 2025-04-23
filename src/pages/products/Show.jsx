@@ -36,9 +36,18 @@ export default function Show() {
     getProduct();
   }, [id]);
 
-  if (loading)
-    return <p className="text-center mt-10 text-gray-500">Chargement...</p>;
-  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (loading) {
+    return (
+      <div className="p-6 max-w-7xl mx-auto flex justify-center items-center h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          color="#4fa94d"
+          ariaLabel="loading-indicator"
+        />
+      </div>
+    );
+  }
 
   const handleDelete = async () => {
     if (!window.confirm("Voulez-vous vraiment supprimer ce produit ?")) return;

@@ -21,7 +21,7 @@ export default function ProductActions({ product }) {
       );
 
       alert("Produit supprimé avec succès !");
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
       alert("Une erreur est survenue lors de la suppression.");
