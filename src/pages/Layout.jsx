@@ -34,9 +34,9 @@ export default function Layout() {
         <nav className="max-w-7xl mx-auto p-4 flex justify-between items-center">
           <Link
             to="/"
-            className="text-2xl font-bold text-blue-500 hover:text-blue-300 transition duration-300"
+            className="text-2xl font-bold text-white hover:text-white transition duration-300"
           >
-            Accueil
+            FESTIJET | Dashboard
           </Link>
 
           <div className="flex items-center space-x-6">
@@ -56,12 +56,6 @@ export default function Layout() {
                   className="text-sm text-gray-300 hover:text-white transition duration-300"
                 >
                   Se connecter
-                </Link>
-                <Link
-                  to="/register"
-                  className="text-sm text-gray-300 hover:text-white transition duration-300"
-                >
-                  Inscrire
                 </Link>
               </>
             )}

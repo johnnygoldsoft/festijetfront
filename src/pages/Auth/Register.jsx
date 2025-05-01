@@ -43,7 +43,7 @@ export default function Register() {
 
   return (
     <>
-      <h1 className="title">Register to your account</h1>
+      <h1 className="title">Espace d'inscription </h1>
       {token}
       <form onSubmit={handleRegister} className="w-1/2 mx-auto space-y-6">
         <div>
@@ -59,7 +59,7 @@ export default function Register() {
         <div>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Votre mail"
             value={formData.email}
             onChange={(e) =>
               setFormDate({ ...formData, email: e.target.value })
@@ -71,7 +71,7 @@ export default function Register() {
         <div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Votre mot de passe"
             value={formData.password}
             onChange={(e) =>
               setFormDate({ ...formData, password: e.target.value })
@@ -83,7 +83,7 @@ export default function Register() {
         <div>
           <input
             type="password"
-            placeholder="Confirm Password"
+            placeholder="Confirmer votre mot de passe"
             value={formData.password_confirmation}
             onChange={(e) =>
               setFormDate({

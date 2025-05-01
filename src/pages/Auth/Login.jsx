@@ -43,13 +43,13 @@ export default function Login() {
 
   return (
     <>
-      <h1 className="title">Login to your account</h1>
+      <h1 className="title">Espace de connexion </h1>
 
       <form onSubmit={handleLogin} className="w-1/2 mx-auto space-y-6">
         <div>
           <input
             type="text"
-            placeholder="Email"
+            placeholder="Votre mail"
             value={formData.email}
             onChange={(e) =>
               setFormDate({ ...formData, email: e.target.value })
@@ -61,7 +61,7 @@ export default function Login() {
         <div>
           <input
             type="password"
-            placeholder="Password"
+            placeholder="votre mot de passe"
             value={formData.password}
             onChange={(e) =>
               setFormDate({ ...formData, password: e.target.value })
