@@ -29,12 +29,12 @@ export default function ProductActions({ product }) {
   };
 
   return (
-    <div className="mt-4 d-flex">
+    <div className="mt-4 d-flex items-center justify-between">
       {user && (
         <>
           <Link
             to={`/product/edit/${product.id}`}
-            className="inline-block mt-4 px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg text-sm font-medium"
+            className="inline-block mt-4 mr-4 px-5 py-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg text-sm font-medium"
           >
             ✏️ Modifier le produit {product.id}
           </Link>
